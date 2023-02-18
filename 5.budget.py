@@ -76,8 +76,11 @@ def create_spend_chart(cat):
     all_withdraw = sum(amount)
     for j in amount:
         categories_percent.append((round((j * 100 // all_withdraw) / 10)) * 10)  # округляем до ближ значения
+    print(categories_percent)  # [10, 70, 20]
     print("Percentage spent by category")
-    for m in range(100, -1, -10):
+    for m in range(100, -1, -10): 
+        for r in categories_percent:
+            if 
         print("{:3d}".format(m) + '|' + ' ' * (len(cat) * 2) + "'")
     print('    ' + '-' * (len(cat) * 2))
     [lenght.append(len(cat[i].name)) for i in range(len(cat))]  # считаем длины категорий
@@ -97,6 +100,8 @@ def create_spend_chart(cat):
 food = Category("Food")
 entertainment = Category("Entertainment")
 business = Category("Business")
+#auto = Category("Auto")
+#auto.deposit(900, "deposit")
 food.deposit(900, "deposit")
 entertainment.deposit(900, "deposit")
 business.deposit(900, "deposit")
