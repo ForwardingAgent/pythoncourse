@@ -4,7 +4,7 @@ class Category:
         self.name = name
         self.category = {}
         self.ledger = []
-    
+
     def __str__(self):
         ans = ''
         self.a = '*' * ((30 - len(self.name)) // 2)
@@ -75,13 +75,39 @@ def create_spend_chart(cat):
         amount.append(abs(k.category['amount']))
     all_withdraw = sum(amount)
     for j in amount:
-        categories_percent.append((round((j * 100 // all_withdraw) / 10)) * 10)  # округляем до ближ значения
-    print(categories_percent)  # [10, 70, 20]
-    print("Percentage spent by category")
-    for m in range(100, -1, -10): 
+        categories_percent.append(round((j * 100 / all_withdraw)))  # округляем до ближ значения
+    print(categories_percent)
+    ans = "Percentage spent by category\n"
+    for m in range(100, -1, -10):
+        ans += "{:3d}".format(m) + "| "
         for r in categories_percent:
-            if 
-        print("{:3d}".format(m) + '|' + ' ' * (len(cat) * 2) + "'")
+            if r >= m:
+                ans += 'o' + '  '  # рисуем O в строке
+            else:
+                ans += '   '
+        ans += '\n'
+    ans += '    ' + '-' * (len(cat) * 3) + '-' + '\n'
+    [lenght.append(len(cat[i].name)) for i in range(len(cat))]  # считаем длины категорий
+    for letter in range(max(lenght)):
+        ans += '     '
+        for categ in range(len(cat)):
+            try:
+                ans += cat[categ].name[letter] + '  '
+            except:
+                ans += '   '
+        ans += '\n'
+    return ans
+
+
+    '''print("Percentage spent by category")
+    for m in range(100, -1, -10):
+        print("{:3d}".format(m) + '|', end='')  # + ' ' * (len(cat) * 2) + "'")
+        for r in categories_percent:
+            if r > m:
+                print(' ' + 'o', end='')  # рисуем о в строке
+            else:
+                print('  ', end='')
+        print()
     print('    ' + '-' * (len(cat) * 2))
     [lenght.append(len(cat[i].name)) for i in range(len(cat))]  # считаем длины категорий
     for letter in range(max(lenght)):
@@ -92,26 +118,25 @@ def create_spend_chart(cat):
             except:
                 print('  ', end='')
                 
-        print()
+        print()'''
     
-
-#print("Percentage spent by category\n100|          \n 90|          \n 80|          \n 70|    o     \n 60|    o     \n 50|    o     \n 40|    o     \n 30|    o     \n 20|    o  o  \n 10|    o  o  \n  0| o  o  o  \n    ----------\n     B  F  E  \n     u  o  n  \n     s  o  t  \n     i  d  e  \n     n     r  \n     e     t  \n     s     a  \n     s     i  \n           n  \n           m  \n           e  \n           n  \n           t  ")
 
 food = Category("Food")
 entertainment = Category("Entertainment")
 business = Category("Business")
-#auto = Category("Auto")
-#auto.deposit(900, "deposit")
+auto = Category("Auto")
+auto.deposit(900, "deposit")
 food.deposit(900, "deposit")
 entertainment.deposit(900, "deposit")
 business.deposit(900, "deposit")
 food.withdraw(105.55)
 entertainment.withdraw(33.40)
 business.withdraw(10.99)
+auto.withdraw(46.99)
 print(business.ledger)
 print(food.ledger)
 print(entertainment.ledger)
-categories = [business, food, entertainment]
+categories = [business, food, entertainment, auto]
 print(create_spend_chart(categories))
 
 # self.assertEqual(actual, expected, 'Expected `check_funds` method to be False')
