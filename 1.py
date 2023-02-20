@@ -1,15 +1,22 @@
-t = int(input())
-for n in range(1, t + 1):
-    # if n == 1:
-        # print('NO')
-    lst = []
-    for i in range(1, n + 1):
-        if n % i == 0:
-            lst.append(i)
-            if len(lst) > 2 or n == 1:
-                # print('NO')
-                lst = []
-                break
-    if len(lst) == 2:
-        # print('YES')
-        print(i, end=' ')
+'''lst = ''
+ans = [0]
+while (s := input()) != 'ФИНИШ':
+    lst += s
+t = set(lst)
+for i in t:
+    r = s.count(i)
+    if r == ans[]:
+        ans.append(r)
+    elif r > ans[0]:
+        ans[0] = r
+print(r)'''
+
+n = int(input())
+lst = []
+for _ in range(n):
+    s = input()
+    lst.append(s)
+m = input()
+for w in lst:
+    if m.lower() in w.lower():
+        print(w)
