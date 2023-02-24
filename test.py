@@ -1,12 +1,21 @@
-while (s := input()) == '':
-    if '#' in s:
-        g = s[:s.index('#')]
-        if g == '':
-            pass
+a = float(input())
+b = float(input())
+c = float(input())
+if a == b == c == 0:
+    print('Infinite solutions')
+else:
+    D = b ** 2 - 4 * a * c
+    if D > 0:
+        x1 = (-b + D ** 0.5) / (2 * a)
+        x2 = (-b - D ** 0.5) / (2 * a)
+        if x1 == x2:
+            print(f'{x1:.2f}')
+        elif x1 > x2:
+            print(f'{x2:.2f}', f'{x1:.2f}')
         else:
-            print(g)
+            print(f'{x1:.2f}', f'{x2:.2f}')
     else:
-        print(s)
+        print('No solution')
 
 
 # Моя первая супер-пупер программа
@@ -52,16 +61,4 @@ for i in range(2, n):
 if len(lst) == 0 and n != 1:
     print('YES')'''
 
-'''
-print(500)
-m = 500
-p = m
-while (n := input()) != 'Угадал!':
-    if n == 'Больше':
-        m = round(m // 2)
-        p = p + m
-        print(p)
-    elif n == 'Меньше':
-        m = round(m // 2)
-        p = p - m
-        print(p)'''
+
