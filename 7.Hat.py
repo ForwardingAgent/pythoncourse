@@ -27,7 +27,7 @@ class Hat:
         self.balls_amount = balls_amount
         if self.balls_amount > len(self.contents):
             self.contents = self.contents + self.all_removed_balls
-            self.all_removed_balls = []
+            return self.contents
         else:
             for i in range(self.balls_amount):
                 self.ball = random.choice(self.contents)
@@ -39,7 +39,8 @@ class Hat:
 def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
     for _ in range(num_experiments):
         dic_removed_balls = {}  # словарь для сравнения с expected_balls
-        removed_balls = hat.draw(num_balls_drawn)  # вытаскиваем шары
+        the_hat = copy.deepcopy(hat)
+        removed_balls = the_hat.draw(num_balls_drawn)  # вытаскиваем шары
         for m in removed_balls:
             dic_removed_balls[m] = removed_balls.count(m)
         count = 0
