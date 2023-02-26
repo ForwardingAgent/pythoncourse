@@ -48,7 +48,7 @@ def add_time(start, duration, day=None):
         new_time = (f'{hours}:{min}{am_pm[:3]}, {week[week.index(day.title()) + 1]}{am_pm[3:]}')
     elif day is not None and days_plus != None:
       if days_plus > 7:
-                new_time = (f'{hours}:{min}{am_pm[:3]}, {week[week.index(day.title()) + (days_plus % 7 - 7)]} ({days_plus} days later)')
+        new_time = (f'{hours}:{min}{am_pm[:3]}, {week[week.index(day.title()) + (days_plus % 7 - 7)]} ({days_plus} days later)')
       else:
         new_time = (f'{hours}:{min}{am_pm[:3]}, {week[week.index(day.title()) + days_plus]} ({days_plus} days later)')
     elif day is None and days_plus is None:
