@@ -1,3 +1,6 @@
+import math
+from functools import reduce
+
 '''d = {}
 count = 0
 n = int(input())
@@ -16,9 +19,10 @@ if count == 0:
     print('Однофамильцев нет')'''
 
 # P 10/20 словари
-lst = []
+'''lst = []
 while (s := input().split(' ')) != ['']:
     if 'зайчик' in s:
         print(s['зайчик'])
         #for i in s:
-        #    if s['зайчик'] != 
+        #    if s['зайчик'] != '''
+

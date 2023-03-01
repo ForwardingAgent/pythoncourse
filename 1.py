@@ -21,6 +21,7 @@ for w in lst:
     if m.lower() in w.lower():
         print(w)'''
 
+
 '''s = input()
 s = s.replace(' ', '').lower()
 s1 = s[::-1]
